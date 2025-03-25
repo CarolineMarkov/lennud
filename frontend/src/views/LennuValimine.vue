@@ -81,14 +81,33 @@
     </form>
 </div>
 <!--Lennud-->
+<div class="lendude-list-kontainer">
+    <h2 class="sektsiooni-pealkiri"> Saadaval lennud</h2>
 
+</div>
 
-    <ul>
-        <li v-for="lend in filteredLennud" :key="lend.id">
-            {{ lend.lahtekoht }} → {{ lend.sihtkoht }} |
-            {{ lend.date }} at {{ lend.time }} | ${{ lend.hind }}
-        </li>
-    </ul>
+<ul class="lendude-list">
+    <li v-for="lend in filteredLennud" :key="lend.id" class="flight-item">
+        <div class="flight-col">
+            <div class="lennu-title">Lähtekoht/Sihtkoht</div>
+            {{ lend.lahtekoht }} -> {{ lend.sihtkoht }}
+        </div>
+        <div class="flight-col">
+            <div class="lennu-title">Kuupäev</div>
+            {{ lend.date }}
+        </div>
+        <div class="flight-col">
+            <div class="lennu-title">Aeg</div>
+            {{ lend.time }}
+        </div>
+
+        <div class="flight-col">
+            <div class="lennu-title">Hind</div>
+            ${{ lend.hind }}
+        </div>
+
+    </li>
+</ul>
 
 </div>
 
@@ -356,6 +375,19 @@ button[type="submit"]:hover {
 }
 
 /* Flight list */
+.koiklennud {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+
+}
 ul {
   list-style: none;
   padding: 0;
@@ -374,9 +406,16 @@ li {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+
 li:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lennu-title {
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 /* Responsive adjustments */
