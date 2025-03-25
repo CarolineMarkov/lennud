@@ -11,7 +11,7 @@
         <!--Lähtekoht-->
         <div class ="filter-item">
             <label for="lahtekoht">Lähtekoht</label>
-            <select id="lahtekoht" vmodel="form.lahtekoht" class="select-input">
+            <select id="lahtekoht" v-model="form.lahtekoht" class="select-input">
                 <option value="">Kust iganes</option>
                 <option v-for="lahtekoht in lahtekohad" :key="lahtekoht" :value="lahtekoht">
                     {{ lahtekoht }}
@@ -22,7 +22,7 @@
         <!--Sihtkoht-->
         <div class ="filter-item">
             <label for="sihtkoht">Sihtkoht</label>
-            <select id="sihtkoht" vmodel="form.sihtkoht" class="select-input">
+            <select id="sihtkoht" v-model="form.sihtkoht" class="select-input">
                 <option value="">Kuhu iganes</option>
                 <option v-for="sihtkoht in sihtkohad" :key="sihtkoht" :value="sihtkoht">
                     {{ sihtkoht }}
@@ -105,6 +105,11 @@
             <div class="lennu-title">Hind</div>
             ${{ lend.hind }}
         </div>
+
+        <router-link :to="'/istekohad/$(lend.id)'" class="button">
+            Vali Lend
+        </router-link>
+
 
     </li>
 </ul>
